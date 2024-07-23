@@ -1,5 +1,5 @@
 import { ColorValue, ViewStyle } from "react-native";
-import { i18nLanguages } from "../lib/lib";
+import type { i18nLanguages } from '../lib/i18n';
 import { Mode } from "./Key";
 
 export type ColorOptions = {
