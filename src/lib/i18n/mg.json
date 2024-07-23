@@ -13,6 +13,7 @@
        "10": "Nov",
        "11": "Des"
     },
+    "longMonths": ["Janoary", "Febroary", "Martsa", "Aprily", "May", "Jiona", "Jolay", "Aogositra", "Septambra", "Oktobra", "Novambra", "Desambra"],
     "weekDays": ["A", "A", "T", "A", "A", "Z", "S"],
     "accept": "Ekena",
     "cancel": "Averina"
