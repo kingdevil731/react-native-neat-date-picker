@@ -1,7 +1,6 @@
 import React from "react"
 import { Mode, Output } from './Key'
 import Modal from 'react-native-modal'
-import { i18nLanguages } from '../lib/lib'
 import { useState, useEffect } from 'react'
 import { StyleSheet, Dimensions, Platform, I18nManager, ColorValue, ViewStyle } from 'react-native'
 import Content from "./Content"
