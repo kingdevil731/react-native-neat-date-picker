@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
 ## **Properties**
 
 | Property            | Type     | Default      | Discription                                                                                                                                     |
-| ------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------  |
+| ------------------- | -------- | ------------ | -----------------------------------------------------------------------------------------------------------------------------------------------  |
 | `isVisible`         | Boolean  | **REQUIRED** | Show the date picker modal                                                                                                                      |
 | `mode`              | String   | **REQUIRED** | 'single' for single date selection. 'range' for date range selection.                                                                           |
 | `onCancel`          | Function | **REQUIRED** | This function will execute when user presses cancel button.                                                                                     |
@@ -159,8 +159,11 @@ const styles = StyleSheet.create({
 | `modalStyles`       | Object   | null         | Customized the modal styles. |
 | `chooseYearFirst`   | boolean  | false        | Pop up the year modal first. |
 | `withoutModal`      | boolean  | false        | If true, the date picker will be displayed directly instead of being placed in a modal. |
+| `headerOrder`       | string   |              | possible value: <b>alternative</b>, to change to be e.g: Jan 2022. default is 2022 Jan                                                          |
+| `monthLength`       | string   | `short`      | <b>possible value:</b> long, to change to be e.g: 2022 January, instead of default Jan 2022                                                     |
 
 ## **OnConfirm**
+
 this prop passes an argument `output`
 For 'single' mode, output contains two properties `date`, `dateString`.<br>
 As for 'range' mode, it contains four properties `startDate`, `startDateString`, `endDate` and `endDateString`<br>
