@@ -1,23 +1,31 @@
-import { Dimensions, I18nManager, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import useDaysOfMonth, { DaysArray } from '../hooks/useDaysOfMonth'
+import { I18nManager, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useState } from 'react'
+import { DaysArray } from '../hooks/useDaysOfMonth'
 import { getTranslation } from '../lib/lib'
 import ChangeYearModal from './ChangeYearModal'
-import Key, { Output } from './Key'
+import Key from './Key'
 import { ColorOptions } from './NeatDatePicker.d'
-import format from '../dateformat'
 import MDicon from 'react-native-vector-icons/MaterialIcons'
 
 I18nManager.allowRTL(false)
 
 const Content = ({
-  language, mode,
-  onPrev, onNext,
-  onConfirmPress, onCancelPress,
-  colorOptions, chooseYearFirst,
-  daysArray, btnDisabled,
-  displayTime, setDisplayTime,
-  output, setOutput
+  language,
+  mode,
+  onPrev,
+  onNext,
+  onConfirmPress,
+  onCancelPress,
+  colorOptions,
+  chooseYearFirst,
+  daysArray,
+  btnDisabled,
+  displayTime,
+  setDisplayTime,
+  output,
+  setOutput,
+  headerOrder, // if present with value alternative we change the value to to be e.g: Jan/January 2024, default is 2024 Jan/January.
+  monthLength // short or long
 }: any) => {
   const [showChangeYearModal, setShowChangeYearModal] = useState(chooseYearFirst || false)
 
@@ -36,6 +44,16 @@ const Content = ({
   const sevenDays = language
     ? getTranslation(language).weekDays
     : getTranslation('en').weekDays
+  const hasDate = daysArray.length !== 0
+
+  const getFormattedMonth = () => {
+    const months = monthLength === 'short' ? 'months' : 'longMonths'
+    // We load the language from the props, if it is not present we use the default language 'en'
+    return (getTranslation(language || 'en')[months] as any)[daysArray[10].month]
+  }
+
+  const formattedMonth = hasDate ? getFormattedMonth() : ''
+  const formattedYear = hasDate ? daysArray[10].year : ''
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
@@ -49,8 +67,10 @@ const Content = ({
         {/* displayed year and month */}
         <TouchableOpacity onPress={() => { setShowChangeYearModal(true) }}>
           <Text style={[styles.header__title, { color: headerTextColor }]}>
-            {daysArray.length !== 0 && daysArray[10].year + ' '}
-            {daysArray.length !== 0 && (language ? (getTranslation(language).months as any)[daysArray[10].month] : (getTranslation('en').months as any)[daysArray[10].month])}
+            { headerOrder === 'alternative'
+              ? `${formattedMonth} ${formattedYear}`
+              : `${formattedYear} ${formattedMonth}`
+            }
           </Text>
         </TouchableOpacity>
 
