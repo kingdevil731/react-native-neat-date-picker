@@ -154,4 +154,12 @@ export type NeatDatePickerProps = {
    * If true, the date picker will be displayed directly instead of being placed in a modal.
    */
   withoutModal?: boolean;
+  /**
+   * Set the order of the header. You can choose 'day-month-year' or 'year-month-day'.
+   */
+  headerOrder?: null | string;
+  /**
+   * Set the length of the month. You can choose 'short' or 'long'.
+   */
+  monthLength: 'short' | 'long';
 }
