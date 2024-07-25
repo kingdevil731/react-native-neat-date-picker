@@ -157,7 +157,7 @@ export type NeatDatePickerProps = {
   /**
    * Set the order of the header. You can choose 'day-month-year' or 'year-month-day'.
    */
-  headerOrder?: null | string;
+  headerOrder?: string;
   /**
    * Set the length of the month. You can choose 'short' or 'long'.
    */
