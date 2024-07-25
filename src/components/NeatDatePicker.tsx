@@ -32,7 +32,9 @@ const NeatDatePicker = ({
     onConfirm,
     startDate,
     chooseYearFirst,
-    withoutModal
+    withoutModal,
+    headerOrder = 'default',
+    monthLength = 'short'
 }: NeatDatePickerProps) => {
     // displayTime defines which month is going to be shown onto the screen
     // For 'single' mode, displayTime is also the initial selected date when opening DatePicker at the first time.
@@ -177,7 +179,9 @@ const NeatDatePicker = ({
                     displayTime,
                     setDisplayTime,
                     output,
-                    setOutput
+                    setOutput,
+                    headerOrder,
+                    monthLength
                 }}
             />
         )
