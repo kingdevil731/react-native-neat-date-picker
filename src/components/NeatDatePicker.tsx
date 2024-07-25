@@ -1,34 +1,39 @@
-import React from "react"
-import { Mode, Output } from './Key'
+import { Output } from './Key'
 import Modal from 'react-native-modal'
 import { useState, useEffect } from 'react'
-import { StyleSheet, Dimensions, Platform, I18nManager, ColorValue, ViewStyle } from 'react-native'
-import Content from "./Content"
-import useDaysOfMonth from "../hooks/useDaysOfMonth"
+import { StyleSheet, Dimensions, Platform, I18nManager } from 'react-native'
+import Content from './Content'
+import useDaysOfMonth from '../hooks/useDaysOfMonth'
 import format from '../dateformat'
-import { NeatDatePickerProps } from "./NeatDatePicker.d"
+import { NeatDatePickerProps } from './NeatDatePicker.d'
 
 I18nManager.allowRTL(false)
 /**
  * Change window height to screen height due to an issue in android.
- * 
+ *
  * @issue https://github.com/react-native-modal/react-native-modal/issues/147#issuecomment-610729725
  */
 const winY = Dimensions.get('screen').height
 
 const NeatDatePicker = ({
-    colorOptions, dateStringFormat,
-    endDate, initialDate,
-    isVisible, language,
-    maxDate, minDate,
-    modalStyles, mode,
-    onBackButtonPress, onBackdropPress,
-    onCancel, onConfirm,
+    colorOptions,
+    dateStringFormat,
+    endDate,
+    initialDate,
+    isVisible,
+    language,
+    maxDate,
+    minDate,
+    modalStyles,
+    mode,
+    onBackButtonPress,
+    onBackdropPress,
+    onCancel,
+    onConfirm,
     startDate,
     chooseYearFirst,
     withoutModal
 }: NeatDatePickerProps) => {
-
     // displayTime defines which month is going to be shown onto the screen
     // For 'single' mode, displayTime is also the initial selected date when opening DatePicker at the first time.
     const [displayTime, setDisplayTime] = useState(initialDate ?? new Date())
@@ -143,7 +148,6 @@ const NeatDatePicker = ({
         setTimeout(setBtnDisabled, 300, false)
     }, [btnDisabled])
 
-
     useEffect(() => {
         const [y, m, d] = [initialDate?.getFullYear(), initialDate?.getMonth(), initialDate?.getDate()]
         const updatedInitalDate = initialDate && new Date(y, m, d)
@@ -156,20 +160,28 @@ const NeatDatePicker = ({
         setOriginalOutput({ ...newOutput })
     }, [mode, initialDate])
 
-
-    if (withoutModal) return (
-        <Content
-            {...{
-                language, mode,
-                onPrev, onNext,
-                onConfirmPress, onCancelPress,
-                colorOptions, chooseYearFirst,
-                daysArray, btnDisabled,
-                displayTime, setDisplayTime,
-                output, setOutput
-            }}
-        />
-    )
+    if (withoutModal) {
+        return (
+            <Content
+                {...{
+                    language,
+                    mode,
+                    onPrev,
+                    onNext,
+                    onConfirmPress,
+                    onCancelPress,
+                    colorOptions,
+                    chooseYearFirst,
+                    daysArray,
+                    btnDisabled,
+                    displayTime,
+                    setDisplayTime,
+                    output,
+                    setOutput
+                }}
+            />
+        )
+    }
     return (
         <Modal
             isVisible={isVisible}
@@ -188,13 +200,20 @@ const NeatDatePicker = ({
         >
             <Content
                 {...{
-                    language, mode,
-                    onPrev, onNext,
-                    onConfirmPress, onCancelPress,
-                    colorOptions, chooseYearFirst,
-                    daysArray, btnDisabled,
-                    displayTime, setDisplayTime,
-                    output, setOutput
+                    language,
+                    mode,
+                    onPrev,
+                    onNext,
+                    onConfirmPress,
+                    onCancelPress,
+                    colorOptions,
+                    chooseYearFirst,
+                    daysArray,
+                    btnDisabled,
+                    displayTime,
+                    setDisplayTime,
+                    output,
+                    setOutput
                 }}
             />
         </Modal>
@@ -207,7 +226,6 @@ NeatDatePicker.defaultProps = {
 }
 
 export default NeatDatePicker
-
 
 const styles = StyleSheet.create({
     modal: {
