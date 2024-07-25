@@ -13,6 +13,7 @@
        "10": "Nov",
        "11": "Déc"
     },
+    "longMonths": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
     "weekDays": ["D", "L", "M", "M", "J", "V", "S"],
     "accept": "Accepter",
     "cancel": "Annuler"

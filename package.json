@@ -1,7 +1,7 @@
 {
-  "name": "react-native-neat-date-picker",
-  "version": "1.4.12",
-  "description": "An easy-to-use date picker for React Native",
+  "name": "reactnative-neat-date-picker-2022",
+  "version": "1.2.7",
+  "description": "An easy-to-use date picker for React Native, Props to @Roto93",
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/roto93/react-native-neat-date-picker.git"
+    "url": "https://github.com/kingdevil731/react-native-neat-date-picker"
   },
   "keywords": [
     "react-native",
@@ -27,6 +27,10 @@
       "name": "diecodev",
       "email": "diegoddiaz05@gmail.com",
       "url": "https://diecodev.vercel.app"
+    },
+    {
+      "name": "kingdevil731",
+      "email": "rubendejesusforner@gmail.com"
     }
   ],
   "license": "MIT",
@@ -36,7 +40,7 @@
   "homepage": "https://github.com/roto93/react-native-neat-date-picker#readme",
   "devDependencies": {
     "@types/react": "^18.0.15",
-    "@types/react-native": "^0.69.4",
+    "@types/react-native": "^0.69.26",
     "@types/react-native-vector-icons": "^6.4.11",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",

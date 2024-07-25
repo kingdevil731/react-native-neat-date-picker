@@ -1,5 +1,5 @@
 import { ColorValue, ViewStyle } from "react-native";
-import { i18nLanguages } from "../lib/lib";
+import type { i18nLanguages } from '../lib/i18n';
 import { Mode } from "./Key";
 
 export type ColorOptions = {
@@ -154,4 +154,12 @@ export type NeatDatePickerProps = {
    * If true, the date picker will be displayed directly instead of being placed in a modal.
    */
   withoutModal?: boolean;
+  /**
+   * Set the order of the header. You can choose 'day-month-year' or 'year-month-day'.
+   */
+  headerOrder?: string;
+  /**
+   * Set the length of the month. You can choose 'short' or 'long'.
+   */
+  monthLength: 'short' | 'long';
 }
